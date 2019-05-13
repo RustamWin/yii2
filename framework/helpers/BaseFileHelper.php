@@ -631,7 +631,7 @@ class BaseFileHelper
         $parentDir = dirname($path);
         // recurse if parent dir does not exist and we are not at the root of the file system.
         if ($recursive && !is_dir($parentDir) && $parentDir !== $path) {
-            static::createDirectory($parentDir, $mode, true);
+            static::createDirectory($parentDir, $mode, $recursive);
         }
         try {
             if (!mkdir($path, $mode)) {
